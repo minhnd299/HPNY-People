@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy new year for you</title>
+  <link rel="shortcut icon" type="image/gif" href="https://img.icons8.com/?size=256&id=azdb7D9htkdD&format=png">
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    font-family: 'Protest Riot', cursive;
+  }
+
+  body {
+    background-color: #9b070f;
+  }
+
+
+  @keyframes fall {
+    0% {
+      transform: translate(0, -10px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(500px, 1000px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .envelope {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://pngimg.com/uploads/envelope/envelope_PNG18366.png');
+    background-size: cover;
+    background-position: center;
+    margin: 200px auto 0px auto;
+    cursor: pointer;
+  }
+
+  .envelope-msg {
+    padding-top: 130px;
+    color: white;
+    text-align: center;
+  }
+
+  .input-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .input {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background-color: white;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  .glow-on-hover:active {
+    color: #000
+  }
+
+  .glow-on-hover:active:after {
+    background: transparent;
+  }
+
+  .glow-on-hover:hover:before {
+    opacity: 1;
+  }
+
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+
+    50% {
+      background-position: 400% 0;
+    }
+
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  .letter-close {
+    display: block;
+  }
+
+  .letter-open {
+    display: none;
+  }
+
+  .rtan {
+    background-color: white;
+    width: 300px;
+    height: 250px;
+    background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExajB0Y2sxdGNvYXBjdDIwZXZwcno1ODlmYThuM283ZWQyM2dyN2V4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UUhnOExaUB8BkDUaJn/giphy.gif');
+    background-size: cover;
+    background-position: center;
+    margin: 100px auto 0px auto;
+    border-radius: 100px;
+    border: 5px solid white;
+    box-shadow: 0px 0px 10px 10px rgb(12, 185, 70);
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .messagebox {
+    background-color: ivory;
+    width: 500px;
+    margin: auto;
+    color: rgb(8, 71, 25);
+    padding: 30px;
+    font-size: 30px;
+    line-height: 35px;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 10px rgb(231, 152, 152);
+  }
+
+  .from {
+    text-align: right;
+    margin-bottom: 0px;
+  }
+
+  @media screen and (max-width: 760px) {
+    .messagebox {
+      font-size: 20px;
+      width: 300px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .rtan {
+      width: 150px;
+      height: 150px;
+      margin: 50px auto 0px auto;
+      border: 5px solid white;
+      box-shadow: 0px 0px 10px 5px rgb(12, 185, 70);
+    }
+
+    .envelope {
+      margin: 200px auto 0px auto;
+    }
+  }
+
+</style>
+
+</head>
+<body>
+  <div class="letter-close">
+    <h2 class="envelope-msg">Nhập tên cậu điiii</h2>
+    <div class="input-container">
+      <input id="user" type="text" class="input">
+    </div>
+    <button class="glow-on-hover" id="enterButton">ENTER</button>
+  </div>
+  <div class="letter-open" style="display: none;">
+    <div id="sakura"></div> <!-- Thêm một phần tử div để chứa hoa rơi -->
+    <div class="rtan"></div>
+    <h1> Goodbye 2023 </h1>
+    <div class="messagebox">
+      <p class="from">10/2/2024 ♥</p>
+      Happy new year 2024 <br />  
+      Tớ chúc cho <span class="user-input"></span> năm mới có thật nhìu sức khỏe , nhìu tiền :)) <br />
+      Sẽ có thật nhiều niềm vui mới , nhiều trải nghiệm mới <br />
+      Ai chưa có người yêu thì sớm có, ai chưa thành công sẽ phát triển trong năm nay 
+      <p class="from">From Đức Minh with love
+    </div>
+  </div>
+
+</body>
+
+
+<script>
+  document.getElementById("enterButton").addEventListener("click", function () {
+    var inputText = document.getElementById("user").value.trim();
+    if (inputText !== "") {
+      document.querySelector(".letter-close").style.display = "none";
+      document.querySelector(".letter-open").style.display = "block";
+      document.querySelector(".user-input").innerText = inputText; 
+      open_letter(); // Gọi hàm để phát âm thanh
+    } else {
+      alert("Hãy nhập tên của cậu để tớ có bất ngờ á");
+    }
+  });
+
+  function open_letter() {
+    var audio1 = new Audio('y2mate (mp3cut.net).mp3');
+    audio1.play();
+  }
+
+</script>
+</html>
